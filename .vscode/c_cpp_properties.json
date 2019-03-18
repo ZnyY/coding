@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:/MinGW/lib/gcc/mingw32/8.2.0/include",
+                "C:/MinGW/include",
+                "C:/MinGW/lib/gcc/mingw32/8.2.0/include/c++",
+                "C:/MinGW/lib/gcc/mingw32/8.2.0/include/c++/mingw32",
+                "F://CodeBlocks//MinGW//lib//gcc//mingw32//5.1.0//include",
+                "F://CodeBlocks//MinGW//include",
+                "F:/CodeBlocks/MinGW/lib/gcc/mingw32/5.1.0/include/c++",
+                "F:/CodeBlocks/MinGW/lib/gcc/mingw32/5.1.0/include/c++/mingw32"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "intelliSenseMode": "msvc-x64"
+        }
+    ],
+    "version": 4
+}

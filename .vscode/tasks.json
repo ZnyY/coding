@@ -1,0 +1,45 @@
+// tasks.json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "command": "",
+    "tasks": [
+        {
+            "label": "Build",  // 任务的名字叫Build，注意是大小写区分的，等会在launch中调用这个名字
+            "type": "shell",  // 任务执行的是shell命令，也可以是
+            "command": "g++", // 命令是g++
+            /*"args": [
+                "-g",
+                "-Wall",
+                "-std=c++11",  //使用c++17标准编译
+                "${file}", //当前文件名
+                "-o", //对象名，不进行编译优化
+                "${fileBasenameNoExtension}.exe",  //当前文件名（去掉扩展名）
+            ],*/
+            "args": [
+                "${file}",
+                "-o", // 指定输出文件名，不加该参数则默认输出a.exe，Linux下默认a.out
+                "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "-g", // 生成和调试有关的信息
+                "-Wall", // 开启额外警告
+                "-static-libgcc", // 静态链接
+                "-fcolor-diagnostics", // 彩色的错误信息？但貌似clang默认开启而gcc不接受此参数
+                "--target=x86_64-w64-mingw", // clang的默认target为msvc，不加这一条就会找不到头文件；Linux下去掉这一条
+                "-std=c++11" // C语言最新标准为c11，或根据自己的需要进行修改
+            ], // 编译命令参数
+          // 所以以上部分，就是在shell中执行（假设文件名为filename.cpp）
+          // g++ filename.cpp -o filename.exe
+            "group": { 
+                "kind": "build",
+                "isDefault": true   
+                // 任务分组，因为是tasks而不是task，意味着可以连着执行很多任务
+                // 在build组的任务们，可以通过在Command Palette(F1) 输入run build task来运行
+                // 当然，如果任务分组是test，你就可以用run test task来运行 
+            },
+            "problemMatcher": [
+                "$gcc" // 使用gcc捕获错误
+            ],
+        }
+    ]
+}
