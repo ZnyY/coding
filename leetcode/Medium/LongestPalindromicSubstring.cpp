@@ -1,3 +1,5 @@
+//https://leetcode.com/problems/longest-palindromic-substring/
+//author:zhangyi
 #include <bits/stdc++.h>
 using namespace std ;
 class Solution {
